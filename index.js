@@ -565,8 +565,8 @@ function initCoins(coinImage) {
     // coins.push(new Coin({ x: 1900 + (1900 /2), y: 290, image: coinImage, frames: 5, frameDelay: 5 }));
 
     // Now adding "STADIUM" spelled out smaller at x=2100
-    const baseX = 1800;
-    const baseY = 300;
+    const baseX = 50;
+    const baseY = 80;
     const dx = 20; // smaller horizontal spacing
     const dy = 20; // smaller vertical spacing
 
@@ -670,7 +670,7 @@ function initCoins(coinImage) {
 let floatingPlatforms = [];
 
 function initFloatingPlatforms(floatingPlatformImage) {
-    floatingPlatforms.push(new FloatingPlatform({ x: 800, y: 350, image: floatingPlatformImage, hitboxWidth: 300, hitboxHeight: 50 }));
+    floatingPlatforms.push(new FloatingPlatform({ x: 900, y: 350, image: floatingPlatformImage, hitboxWidth: 300, hitboxHeight: 50 }));
     floatingPlatforms.push(new FloatingPlatform({ x: 1200, y: 100, image: floatingPlatformImage, hitboxWidth: 300, hitboxHeight: 50 }));
     floatingPlatforms.push(new FloatingPlatform({ x: 1400, y: 290, image: floatingPlatformImage, hitboxWidth: 300, hitboxHeight: 50 }));
     floatingPlatforms.push(new FloatingPlatform({ x: 1800, y:170, image: floatingPlatformImage, hitboxWidth: 300, hitboxHeight: 50 }));
