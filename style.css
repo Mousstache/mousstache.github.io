@@ -437,10 +437,10 @@
 }
 
 canvas {
-	width: 80%;
-	height: 80%;
+	width: 100%;
+	height: 100%;
 	background-color: #c11f1f00;
-	position: relative;
+	position: absolute;
 }
 
 #Skip {

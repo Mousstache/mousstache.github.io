@@ -6,7 +6,7 @@ let c;
 if (canvas) {
     c = canvas.getContext('2d');
     canvas.width = 1024;
-    canvas.height = 576;
+    canvas.height = 580;
 }
 
 const gravity = 1.5;
@@ -124,48 +124,45 @@ class Player {
         const adjustedSecurityPositionX1 = security1.position.x - scrollOffset;
         const adjustedSecurityPositionX2 = security2.position.x - scrollOffset;
 
-        if (security1.isVisible &&
-            this.position.x + this.width > adjustedSecurityPositionX1 &&
-            this.position.x < adjustedSecurityPositionX1 + security1.width &&
-            this.position.y + this.height > security1.position.y) {
-				if (coinCounter >= 10) {
-					isGameActive = false;
-					cleanupGame();
-					// window.location.href = 'https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-d036124204edf2a01aa9b0877ebe8414946ec2c996380e7bf885a4e715b6e9c1&redirect_uri=https%3A%2F%2Fbess-f2r5s11.clusters.42paris.fr%3A8443&response_type=code';
-				}
-            // Prevent player from overlapping with security1
-            if (this.position.x < adjustedSecurityPositionX1) {
-                this.position.x = adjustedSecurityPositionX1 - this.width;
-            } else if (this.position.x + this.width > adjustedSecurityPositionX1) {
-                this.position.x = adjustedSecurityPositionX1 + security1.width;
-            }
-        }
+        // if (security1.isVisible &&
+        //     this.position.x + this.width > adjustedSecurityPositionX1 &&
+        //     this.position.x < adjustedSecurityPositionX1 + security1.width &&
+        //     this.position.y + this.height > security1.position.y) {
+		// 		if (coinCounter >= 10) {
+		// 			isGameActive = false;
+		// 		}
+        //     if (this.position.x < adjustedSecurityPositionX1) {
+        //         this.position.x = adjustedSecurityPositionX1 - this.width;
+        //     } else if (this.position.x + this.width > adjustedSecurityPositionX1) {
+        //         this.position.x = adjustedSecurityPositionX1 + security1.width;
+        //     }
+        // }
 
-        if (security2.isVisible &&
-            this.position.x + this.width > adjustedSecurityPositionX2 &&
-            this.position.x < adjustedSecurityPositionX2 + security2.width &&
-            this.position.y + this.height > security2.position.y) {
-            // Prevent player from overlapping with security2
-            if (this.position.x < adjustedSecurityPositionX2) {
-                this.position.x = adjustedSecurityPositionX2 - this.width;
-            } else if (this.position.x + this.width > adjustedSecurityPositionX2) {
-                this.position.x = adjustedSecurityPositionX2 + security2.width;
-            }
-        }
+        // if (security2.isVisible &&
+        //     this.position.x + this.width > adjustedSecurityPositionX2 &&
+        //     this.position.x < adjustedSecurityPositionX2 + security2.width &&
+        //     this.position.y + this.height > security2.position.y) {
+        //     // Prevent player from overlapping with security2
+        //     if (this.position.x < adjustedSecurityPositionX2) {
+        //         this.position.x = adjustedSecurityPositionX2 - this.width;
+        //     } else if (this.position.x + this.width > adjustedSecurityPositionX2) {
+        //         this.position.x = adjustedSecurityPositionX2 + security2.width;
+        //     }
+        // }
 
         // Collision detection with School
-        const adjustedSchoolPositionX = school.position.x - scrollOffset;
-        if (school.isVisible &&
-            this.position.x + this.width > adjustedSchoolPositionX &&
-            this.position.x < adjustedSchoolPositionX + school.width &&
-            this.position.y + this.height > school.position.y) {
-            // Prevent player from overlapping with school
-            if (this.position.x < adjustedSchoolPositionX) {
-                this.position.x = adjustedSchoolPositionX - this.width;
-            } else if (this.position.x + this.width > adjustedSchoolPositionX) {
-                this.position.x = adjustedSchoolPositionX + school.width;
-            }
-        }
+        // const adjustedSchoolPositionX = school.position.x - scrollOffset;
+        // if (school.isVisible &&
+        //     this.position.x + this.width > adjustedSchoolPositionX &&
+        //     this.position.x < adjustedSchoolPositionX + school.width &&
+        //     this.position.y + this.height > school.position.y) {
+        //     // Prevent player from overlapping with school
+        //     if (this.position.x < adjustedSchoolPositionX) {
+        //         this.position.x = adjustedSchoolPositionX - this.width;
+        //     } else if (this.position.x + this.width > adjustedSchoolPositionX) {
+        //         this.position.x = adjustedSchoolPositionX + school.width;
+        //     }
+        // }
 
         // Prevent player from going out of bounds
         if (this.position.x < 0) {
@@ -551,13 +548,13 @@ function initCoinIcons(coinImage) {
 
 function initCoins(coinImage) {
     // Original coins
-    coins.push(new Coin({ x: 580+ (580/ 2), y: 280, image: coinImage, frames: 5, frameDelay: 5 }));
-    coins.push(new Coin({ x: 640+ (640/ 2), y: 280, image: coinImage, frames: 5, frameDelay: 5 }));
-    coins.push(new Coin({ x: 800 + (800 /2), y: 325, image: coinImage, frames: 5, frameDelay: 5 }));
-    coins.push(new Coin({ x: 980 + (980 /2), y: 230, image: coinImage, frames: 5, frameDelay: 5 }));
-    coins.push(new Coin({ x: 1040 + (1040 /2), y: 230, image: coinImage, frames: 5, frameDelay: 5 }));
+    // coins.push(new Coin({ x: 580+ (580/ 2), y: 280, image: coinImage, frames: 5, frameDelay: 5 }));
+    // coins.push(new Coin({ x: 640+ (640/ 2), y: 280, image: coinImage, frames: 5, frameDelay: 5 }));
+    // coins.push(new Coin({ x: 800 + (800 /2), y: 325, image: coinImage, frames: 5, frameDelay: 5 }));
+    // coins.push(new Coin({ x: 980 + (980 /2), y: 230, image: coinImage, frames: 5, frameDelay: 5 }));
+    // coins.push(new Coin({ x: 1040 + (1040 /2), y: 230, image: coinImage, frames: 5, frameDelay: 5 }));
     // coin pour matheo
-    coins.push(new Coin({ x: 2000, y: 500, image: coinImage, frames: 5, frameDelay: 5 }));
+    // coins.push(new Coin({ x: 2000, y: 500, image: coinImage, frames: 5, frameDelay: 5 }));
     //
     // coins.push(new Coin({ x: 1230 + (1230 /2), y:115, image: coinImage, frames: 5, frameDelay: 5 }));
     // coins.push(new Coin({ x: 1280 + (1280 /2), y:115, image: coinImage, frames: 5, frameDelay: 5 })); 
@@ -568,13 +565,57 @@ function initCoins(coinImage) {
     // coins.push(new Coin({ x: 1900 + (1900 /2), y: 290, image: coinImage, frames: 5, frameDelay: 5 }));
 
     // Now adding "STADIUM" spelled out smaller at x=2100
-    const baseX = 2100;
-    const baseY = 200;
+    const baseX = 1800;
+    const baseY = 300;
     const dx = 20; // smaller horizontal spacing
     const dy = 20; // smaller vertical spacing
 
     // Define letter patterns (5 wide x 7 tall)
     const patterns = {
+        'M': [
+            "#   #",
+            " # # ",
+            "# # #",
+            "     ",
+            "#   #",
+            "     ",
+            "#   #",
+            "     ",
+            "#   #"
+        ],
+        'O': [
+            "# # #",
+            "     ",
+            "#   #",
+            "     ",
+            "#   #",
+            "     ",
+            "#   #",
+            "     ",
+            "# # #"
+        ],
+        'U': [
+            "#   #",
+            "     ",
+            "#   #",
+            "     ",
+            "#   #",
+            "     ",
+            "#   #",
+            "     ",
+            "# # #"
+        ],
+        '$': [
+            "# # #",
+            "     ",
+            "#    ",
+            "     ",
+            "# # #",
+            "     ",
+            "    #",
+            "     ",
+            "# # #"
+        ],
         'S': [
             "# # #",
             "     ",
@@ -586,80 +627,23 @@ function initCoins(coinImage) {
             "     ",
             "# # #"
         ],
-        'T': [
-            "#####",
-            "  #  ",
-            "     ",
-            "  #  ",
-            "     ",
-            "  #  ",
-            "     ",
-            "  #  ",
-
-
-        ],
         'A': [
             "  #  ",
             " # # ",
             "     ",
             "#   #",
             "     ",
-            "#   #",
-            "     ",
-			"#   #"
-        ],
-        'D': [
-            "# #  ",
-            "#   #",
-            "     ",
-            "#   #",
-            "     ",
-            "#   #",
-            "# #  "
-        ],
-        'I': [
-            "# # #",
-            "  #  ",
-            "     ",
-            "  #  ",
-            "     ",
-            "  #  ",
-            "# # #"
-        ],
-        'U': [
-            "#   #",
-            "     ",
-            "#   #",
-            "     ",
-            "#   #",
-            "     ",
-            "# # #"
-        ],
-        'M': [
-            "#   #",
-            "## ##",
             "# # #",
             "     ",
             "#   #",
-            "     ",
             "#   #"
+
         ],
-        // Define the arrow pattern (5 wide x 7 tall)
-        // This creates a right-pointing arrow shape
-        '>': [
-            "     ",
-            "   # ",
-            "     #",
-            "# # # # #",
-            "    #",
-            "   # ",
-            "     "
-        ]
     };
 
     // Letter offsets in columns (each letter is 5 columns + 1 space = 6 columns apart)
-    const offsets = { S:0, T:8, A:16, D:24, I:32, U:40, M:48, '>':56 };
-    const letters = "STADIUM>".split('');
+    const offsets = { M:0, O:8, U:16, $:24, S:32, A:40};
+    const letters = "MOU$SA".split('');
 
     // Add the coins for the letters
     for (let l = 0; l < letters.length; l++) {
@@ -823,14 +807,14 @@ function handleKeydown({ keyCode }) {
     if (!isGameActive) return; // Empêche les actions si le jeu n'est pas actif
 
     switch (keyCode) {
-        case 87: // Touche W
+        case 38: // Touche W
             player.jump();
             break;
-        case 65: // Touche A
+        case 37: // Touche A
             keys.left.pressed = true;
             player.setState('runLeft');
             break;
-        case 68: // Touche D
+        case 39: // Touche D
             keys.right.pressed = true;
             player.setState('runRight');
             break;
@@ -841,11 +825,11 @@ function handleKeyup({ keyCode }) {
     if (!isGameActive) return; // Empêche les actions si le jeu n'est pas actif
 
     switch (keyCode) {
-        case 65: // Touche A
+        case 37: // Touche A
             keys.left.pressed = false;
             player.setState('idleLeft');
             break;
-        case 68: // Touche D
+        case 39: // Touche D
             keys.right.pressed = false;
             player.setState('idleRight');
             break;
@@ -855,74 +839,7 @@ function handleKeyup({ keyCode }) {
 window.addEventListener('keydown', handleKeydown);
 window.addEventListener('keyup', handleKeyup);
 
-
-// window.addEventListener('keydown', ({ keyCode }) => {
-//     console.log("valeur ==", isGameActive);
-//     if (!isGameActive) return; // Empêche les actions si le jeu n'est pas actif
-
-//     switch (keyCode) {
-//         case 87: // Touche W
-//             player.jump();
-//             break;
-//         case 65: // Touche A
-//             keys.left.pressed = true;
-//             player.setState('runLeft');
-//             break;
-//         case 68: // Touche D
-//             keys.right.pressed = true;
-//             player.setState('runRight');
-//             break;
-//     }
-// });
-
-// window.addEventListener('keyup', ({ keyCode }) => {
-//     console.log("valeur =>", isGameActive);
-//     if (!isGameActive) return; // Empêche les actions si le jeu n'est pas actif
-
-//     switch (keyCode) {
-//         case 65: // Touche A
-//             keys.left.pressed = false;
-//             player.setState('idleLeft');
-//             break;
-//         case 68: // Touche D
-//             keys.right.pressed = false;
-//             player.setState('idleRight');
-//             break;
-//     }
-// });
-
-
-// window.addEventListener('keydown', ({ keyCode }) => {
-//     switch (keyCode) {
-//         case 87:
-//             player.jump();
-//             break;
-//         case 65:
-//             keys.left.pressed = true;
-//             player.setState('runLeft');
-//             break;
-//         case 68:
-//             keys.right.pressed = true;
-//             player.setState('runRight');
-//             break;
-//     }
-// });
-
-// window.addEventListener('keyup', ({ keyCode }) => {
-//     switch (keyCode ) {
-//         case 65:
-//             keys.left.pressed = false;
-//             player.setState('idleLeft');
-//             break;
-//         case 68:
-//             keys.right.pressed = false;
-//             player.setState('idleRight');
-//             break;
-//     }
-// });
-
 function startGame() {
-	console.log("start fdp ")
     if (!document.getElementById("platformImagePath") || !document.getElementById("backgroundImagePath") || !document.getElementById("backgroundImage2Path") || !document.getElementById("backgroundImage3Path") || !document.getElementById("backgroundImage4Path") || !document.getElementById("backgroundImage5Path") || !document.getElementById("vigilImagePath") || !document.getElementById("schoolImagePath") || !document.getElementById("characterImageidlerightPath") || !document.getElementById("characterImageidleleftPath") || !document.getElementById("characterImagejumpleftPath") || !document.getElementById("characterImagejumprightPath") || !document.getElementById("characterImagerunrightPath") || !document.getElementById("characterImagerunleftPath") || !document.getElementById("coinImagePath") || !document.getElementById("floatingPlatformImagePath") || !document.getElementById("coinIconImagePath") || !document.getElementById("priceBubbleImagePath") || !document.getElementById("thumbsupBubbleImagePath"))
         return;
 	isGameActive = true; // Par défaut, actif
@@ -1009,15 +926,4 @@ function startGame() {
     });
 }
 
-const fontPath = '../font/ARCADE_N.TTF';
-
 startGame();
-
-// Fonction pour nettoyer le jeu
-function cleanupGame() {
-    isGameActive = false;
-    // Supprimer les gestionnaires d'événements
-    window.removeEventListener('keydown', handleKeydown);
-    window.removeEventListener('keyup', handleKeyup);
-    console.log("Le jeu a été interrompu avec succès.");
-}
