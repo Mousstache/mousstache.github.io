@@ -803,35 +803,14 @@ function animate() {
 }
 
 
-const { Builder, By, Key} = require('selenium-webdriver');
+// function searchHelloWorld() {
+//     // Construire l'URL de recherche
+//     const query = "hello world";
+//     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
 
-async function searchHelloWorld(){
-    // Créer une nouvelle instance de navigateur (Firefox par défaut)
-    let driver = await new Builder().forBrowser('firefox').build();
-
-    // Ouvrir Google
-    await driver.get('https://www.google.com');
-
-	
-
-	try {
-		let acceptCookies = await driver.wait(
-			until.elementLocated(By.id('accept-cookies-button')), 5000
-		);
-		await acceptCookies.click();
-	} catch (err) {
-		console.log('Pas de bannière de cookies détectée.');
-	}
-    
-    // Localiser la barre de recherche, entrer "hello world" et soumettre
-    await driver.findElement(By.name('q')).sendKeys("hello world", Key.ESCAPE);
-    // await searchBox.sendKeys('hello world', Key.RETURN);
-    // Attendre que les résultats s'affichent
-	setInterval(function(){
-		driver.quit();
-	}, 10000);
-    // await driver.wait(until.titleContains('hello world'), 100000);
-}
+//     // Ouvrir un nouvel onglet
+//     window.open(searchUrl, '_blank');
+// }
 
 function handleKeydown({ keyCode }) {
     if (!isGameActive) return; // Empêche les actions si le jeu n'est pas actif
@@ -840,7 +819,7 @@ function handleKeydown({ keyCode }) {
         case 38: // Touche W
             player.jump();
             break;
-        case 90:
+        case 40:
             searchHelloWorld();
             break ;
         case 37: // Touche A
