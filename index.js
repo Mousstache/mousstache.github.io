@@ -802,16 +802,6 @@ function animate() {
     updateCoinCounter();
 }
 
-
-// function searchHelloWorld() {
-//     // Construire l'URL de recherche
-//     const query = "hello world";
-//     const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-
-//     // Ouvrir un nouvel onglet
-//     window.open(searchUrl, '_blank');
-// }
-
 function handleKeydown({ keyCode }) {
     if (!isGameActive) return; // Empêche les actions si le jeu n'est pas actif
 
@@ -819,9 +809,6 @@ function handleKeydown({ keyCode }) {
         case 38: // Touche W
             player.jump();
             break;
-        case 40:
-            searchHelloWorld();
-            break ;
         case 37: // Touche A
             keys.left.pressed = true;
             player.setState('runLeft');
