@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Pont Tailwind CSS v4 -> tokens
+   À importer dans src/app/globals.css après l'init Next.js :
+     @import "tailwindcss";
+     @import "../../design/tokens.css";
+     @import "../../design/tailwind-theme.css";
+   `inline` : les utilitaires pointent vers var(--ds-…), donc les classes
+   .accent-* et prefers-reduced-motion fonctionnent sans rebuild.
+   ========================================================================== */
+
+@theme inline {
+  /* Désactive la palette Tailwind par défaut : seules nos couleurs existent */
+  --color-*: initial;
+
+  --color-bg: var(--ds-color-bg);
+  --color-bg-subtle: var(--ds-color-bg-subtle);
+  --color-surface: var(--ds-color-surface);
+  --color-surface-inverse: var(--ds-color-surface-inverse);
+  --color-fg: var(--ds-color-fg);
+  --color-fg-muted: var(--ds-color-fg-muted);
+  --color-fg-inverse: var(--ds-color-fg-inverse);
+  --color-border: var(--ds-color-border);
+  --color-border-subtle: var(--ds-color-border-subtle);
+  --color-primary: var(--ds-color-primary);
+  --color-primary-hover: var(--ds-color-primary-hover);
+  --color-primary-fg: var(--ds-color-primary-fg);
+  --color-cta: var(--ds-color-cta);
+  --color-cta-hover: var(--ds-color-cta-hover);
+  --color-cta-fg: var(--ds-color-cta-fg);
+  --color-success: var(--ds-color-success);
+  --color-success-bg: var(--ds-color-success-bg);
+  --color-error: var(--ds-color-error);
+  --color-error-bg: var(--ds-color-error-bg);
+  --color-accent: var(--ds-accent);
+  --color-accent-soft: var(--ds-accent-soft);
+  --color-accent-fg: var(--ds-accent-fg);
+
+  /* Accès direct aux accents (illustrations, blobs) */
+  --color-violet: var(--ds-color-violet-500);
+  --color-coral: var(--ds-color-coral-500);
+  --color-coral-text: var(--ds-color-coral-700);
+  --color-yellow: var(--ds-color-yellow-500);
+  --color-mint: var(--ds-color-mint-500);
+  --color-mint-text: var(--ds-color-mint-700);
+  --color-ink: var(--ds-color-ink-900);
+  --color-cream: var(--ds-color-cream-100);
+  --color-white: var(--ds-color-white);
+  --color-transparent: transparent;
+
+  --font-display: var(--ds-font-display);
+  --font-sans: var(--ds-font-body);
+  --font-mono: var(--ds-font-mono);
+
+  --text-xs: var(--ds-font-size-xs);
+  --text-sm: var(--ds-font-size-sm);
+  --text-base: var(--ds-font-size-base);
+  --text-lg: var(--ds-font-size-lg);
+  --text-xl: var(--ds-font-size-xl);
+  --text-2xl: var(--ds-font-size-2xl);
+  --text-3xl: var(--ds-font-size-3xl);
+  --text-4xl: var(--ds-font-size-4xl);
+  --text-5xl: var(--ds-font-size-5xl);
+
+  --radius-sm: var(--ds-radius-sm);
+  --radius-md: var(--ds-radius-md);
+  --radius-lg: var(--ds-radius-lg);
+  --radius-xl: var(--ds-radius-xl);
+  --radius-2xl: var(--ds-radius-2xl);
+
+  --shadow-brutal-sm: var(--ds-shadow-brutal-sm);
+  --shadow-brutal-md: var(--ds-shadow-brutal-md);
+  --shadow-brutal-lg: var(--ds-shadow-brutal-lg);
+  --shadow-brutal-xl: var(--ds-shadow-brutal-xl);
+
+  --ease-out: var(--ds-ease-out);
+  --ease-in-out: var(--ds-ease-in-out);
+  --ease-spring: var(--ds-ease-spring);
+
+  --container-site: var(--ds-container-max);
+  --container-prose: var(--ds-container-narrow);
+}
+
+/* Utilitaires maison */
+@utility border-brutal {
+  border: var(--ds-border-width-thin) solid var(--ds-color-border);
+}
+@utility border-brutal-thick {
+  border: var(--ds-border-width-thick) solid var(--ds-color-border);
+}
+@utility focus-ring {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+@utility section-y {
+  padding-block: var(--ds-space-section);
+}
+@utility container-site {
+  width: 100%;
+  max-width: var(--ds-container-max);
+  margin-inline: auto;
+  padding-inline: var(--ds-gutter);
+}

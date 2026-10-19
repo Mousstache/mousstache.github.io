@@ -1,0 +1,258 @@
+/* ==========================================================================
+   Design tokens — Portfolio Moussa Troiano
+   Source de vérité unique. Trois couches :
+     1. Primitives  (valeurs brutes, jamais utilisées dans les composants)
+     2. Sémantiques (rôle : fond, texte, action, bordure…)
+     3. Composants  (bouton, carte, champ, badge…)
+   Règle : un composant ne référence que les couches 2 et 3.
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. PRIMITIVES
+     ------------------------------------------------------------------------ */
+
+  /* Neutres */
+  --ds-color-cream-50: #FFFCF7;
+  --ds-color-cream-100: #FFF8EE;  /* fond de page */
+  --ds-color-cream-200: #F7EBD9;
+  --ds-color-cream-300: #EADBC4;
+  --ds-color-ink-500: #5B5B73;    /* texte secondaire — 6.24:1 sur cream-100 */
+  --ds-color-ink-700: #33334D;
+  --ds-color-ink-900: #1A1A2E;    /* texte, bordures, ombres — 16.18:1 */
+  --ds-color-white: #FFFFFF;
+
+  /* Accents (fonds / surfaces) */
+  --ds-color-violet-100: #EDE4FF;
+  --ds-color-violet-500: #7C3AED; /* texte OK sur crème (5.40:1) — fond => texte blanc */
+  --ds-color-violet-700: #6D28D9;
+  --ds-color-coral-100: #FFE3E1;
+  --ds-color-coral-500: #FF6B6B;  /* fond uniquement (2.63:1 en texte) — fond => texte encre */
+  --ds-color-coral-700: #C93A3A;  /* version texte — 4.80:1 */
+  --ds-color-yellow-100: #FFF3C4;
+  --ds-color-yellow-500: #FFD23F; /* fond uniquement — fond => texte encre (11.81:1) */
+  --ds-color-yellow-700: #8A6A00;
+  --ds-color-mint-100: #D5F5F2;
+  --ds-color-mint-500: #2EC4B6;   /* fond uniquement (2.06:1 en texte) — fond => texte encre */
+  --ds-color-mint-700: #137A71;   /* version texte — 4.92:1 */
+
+  /* Marques tierces */
+  --ds-color-whatsapp-500: #25D366; /* fond => texte encre (8.60:1) */
+  --ds-color-whatsapp-600: #1EBE5A;
+
+  /* Typographie */
+  --ds-font-display: "Bricolage Grotesque", ui-rounded, system-ui, sans-serif;
+  --ds-font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ds-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-bold: 700;
+  --ds-font-weight-black: 800;
+
+  /* Échelle fluide (mobile 360px -> desktop 1280px) */
+  --ds-font-size-xs: 0.75rem;                                   /* 12 */
+  --ds-font-size-sm: 0.875rem;                                  /* 14 */
+  --ds-font-size-base: 1rem;                                    /* 16 */
+  --ds-font-size-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);   /* 17 -> 20 */
+  --ds-font-size-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);    /* 20 -> 24 */
+  --ds-font-size-2xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);       /* 24 -> 32 */
+  --ds-font-size-3xl: clamp(1.875rem, 1.4rem + 2vw, 3rem);      /* 30 -> 48 */
+  --ds-font-size-4xl: clamp(2.25rem, 1.5rem + 3.3vw, 4.5rem);   /* 36 -> 72 */
+  --ds-font-size-5xl: clamp(2.75rem, 1.6rem + 5vw, 6rem);       /* 44 -> 96 */
+
+  --ds-line-height-tight: 1.05;
+  --ds-line-height-snug: 1.25;
+  --ds-line-height-normal: 1.6;
+  --ds-letter-spacing-tight: -0.03em;
+  --ds-letter-spacing-wide: 0.08em;
+
+  /* Espacement (base 4px) */
+  --ds-space-0: 0;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.25rem;
+  --ds-space-6: 1.5rem;
+  --ds-space-8: 2rem;
+  --ds-space-10: 2.5rem;
+  --ds-space-12: 3rem;
+  --ds-space-16: 4rem;
+  --ds-space-20: 5rem;
+  --ds-space-24: 6rem;
+  --ds-space-32: 8rem;
+
+  /* Rayons — coins très arrondis */
+  --ds-radius-sm: 0.5rem;   /* 8  — badges, inputs compacts */
+  --ds-radius-md: 0.875rem; /* 14 — boutons, champs */
+  --ds-radius-lg: 1.25rem;  /* 20 — cartes */
+  --ds-radius-xl: 1.75rem;  /* 28 — grandes cartes, modale */
+  --ds-radius-2xl: 2.5rem;  /* 40 — sections encadrées */
+  --ds-radius-full: 9999px;
+
+  /* Bordures */
+  --ds-border-width-thin: 2px;
+  --ds-border-width-thick: 3px;
+
+  /* Ombres néo-brutalistes (pleines, décalées, sans flou) */
+  --ds-shadow-brutal-sm: 3px 3px 0 0 var(--ds-color-ink-900);
+  --ds-shadow-brutal-md: 5px 5px 0 0 var(--ds-color-ink-900);
+  --ds-shadow-brutal-lg: 8px 8px 0 0 var(--ds-color-ink-900);
+  --ds-shadow-brutal-xl: 12px 12px 0 0 var(--ds-color-ink-900);
+  --ds-shadow-none: 0 0 0 0 transparent;
+
+  /* Mouvement */
+  --ds-duration-instant: 80ms;
+  --ds-duration-fast: 150ms;
+  --ds-duration-normal: 250ms;
+  --ds-duration-slow: 450ms;
+  --ds-duration-slower: 700ms;
+  --ds-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ds-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ds-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* léger rebond, micro-interactions */
+
+  /* Profondeur */
+  --ds-z-base: 0;
+  --ds-z-raised: 10;
+  --ds-z-sticky: 100;
+  --ds-z-floating: 200;  /* bouton WhatsApp flottant */
+  --ds-z-overlay: 300;
+  --ds-z-modal: 400;
+  --ds-z-toast: 500;
+  --ds-z-cursor: 9999;   /* curseur personnalisé */
+
+  /* Layout */
+  --ds-container-max: 75rem;     /* 1200 */
+  --ds-container-narrow: 45rem;  /* 720 — textes longs, blog */
+  --ds-gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+
+  /* ------------------------------------------------------------------------
+     2. SÉMANTIQUES
+     ------------------------------------------------------------------------ */
+
+  /* Surfaces */
+  --ds-color-bg: var(--ds-color-cream-100);
+  --ds-color-bg-subtle: var(--ds-color-cream-200);
+  --ds-color-surface: var(--ds-color-cream-50);
+  --ds-color-surface-inverse: var(--ds-color-ink-900);
+
+  /* Texte */
+  --ds-color-fg: var(--ds-color-ink-900);
+  --ds-color-fg-muted: var(--ds-color-ink-500);
+  --ds-color-fg-inverse: var(--ds-color-cream-100);
+  --ds-color-link: var(--ds-color-violet-500);
+  --ds-color-link-hover: var(--ds-color-violet-700);
+
+  /* Lignes */
+  --ds-color-border: var(--ds-color-ink-900);
+  --ds-color-border-subtle: var(--ds-color-cream-300);
+
+  /* Actions */
+  --ds-color-primary: var(--ds-color-violet-500);
+  --ds-color-primary-hover: var(--ds-color-violet-700);
+  --ds-color-primary-fg: var(--ds-color-white);
+  --ds-color-cta: var(--ds-color-whatsapp-500);
+  --ds-color-cta-hover: var(--ds-color-whatsapp-600);
+  --ds-color-cta-fg: var(--ds-color-ink-900);
+
+  /* États */
+  --ds-color-focus-ring: var(--ds-color-violet-500);
+  --ds-color-success: var(--ds-color-mint-700);
+  --ds-color-success-bg: var(--ds-color-mint-100);
+  --ds-color-error: var(--ds-color-coral-700);
+  --ds-color-error-bg: var(--ds-color-coral-100);
+  --ds-color-warning-bg: var(--ds-color-yellow-100);
+
+  /* Accent contextuel — chaque offre / projet surcharge ces deux variables
+     via une classe .accent-* (voir plus bas). Défaut : violet. */
+  --ds-accent: var(--ds-color-violet-500);
+  --ds-accent-soft: var(--ds-color-violet-100);
+  --ds-accent-fg: var(--ds-color-white);
+
+  /* Rythme */
+  --ds-space-section: clamp(var(--ds-space-16), 10vw, var(--ds-space-32));
+  --ds-space-stack: var(--ds-space-6);
+  --ds-space-inline: var(--ds-space-3);
+
+  /* Rôles typographiques */
+  --ds-text-display-family: var(--ds-font-display);
+  --ds-text-display-weight: var(--ds-font-weight-black);
+  --ds-text-body-family: var(--ds-font-body);
+
+  /* ------------------------------------------------------------------------
+     3. COMPOSANTS
+     ------------------------------------------------------------------------ */
+
+  /* Bouton */
+  --ds-button-height: 3rem;
+  --ds-button-height-sm: 2.5rem;
+  --ds-button-padding-x: var(--ds-space-6);
+  --ds-button-radius: var(--ds-radius-md);
+  --ds-button-border: var(--ds-border-width-thin) solid var(--ds-color-border);
+  --ds-button-shadow: var(--ds-shadow-brutal-sm);
+  --ds-button-shadow-hover: var(--ds-shadow-brutal-md);
+  --ds-button-lift: -2px;              /* translation au survol */
+  --ds-button-font-weight: var(--ds-font-weight-bold);
+
+  /* Carte (offre, projet, blog) */
+  --ds-card-bg: var(--ds-color-surface);
+  --ds-card-padding: clamp(var(--ds-space-5), 4vw, var(--ds-space-8));
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-border: var(--ds-border-width-thin) solid var(--ds-color-border);
+  --ds-card-shadow: var(--ds-shadow-brutal-md);
+  --ds-card-shadow-hover: var(--ds-shadow-brutal-lg);
+  --ds-card-tilt-max: 8deg;            /* rotation max de l'effet tilt */
+
+  /* Champ de formulaire */
+  --ds-input-height: 3rem;
+  --ds-input-bg: var(--ds-color-white);
+  --ds-input-fg: var(--ds-color-fg);
+  --ds-input-placeholder: var(--ds-color-fg-muted);
+  --ds-input-padding-x: var(--ds-space-4);
+  --ds-input-radius: var(--ds-radius-md);
+  --ds-input-border: var(--ds-border-width-thin) solid var(--ds-color-border);
+  --ds-input-shadow-focus: var(--ds-shadow-brutal-sm);
+  --ds-input-border-error: var(--ds-color-error);
+
+  /* Badge / étiquette (« Projet démo », stack…) */
+  --ds-badge-padding: var(--ds-space-1) var(--ds-space-3);
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-font-size: var(--ds-font-size-xs);
+  --ds-badge-border: var(--ds-border-width-thin) solid var(--ds-color-border);
+
+  /* Bouton WhatsApp flottant */
+  --ds-fab-size: 3.75rem;
+  --ds-fab-offset: var(--ds-space-5);
+
+  /* Modale (étude de cas) */
+  --ds-modal-bg: var(--ds-color-surface);
+  --ds-modal-radius: var(--ds-radius-xl);
+  --ds-modal-shadow: var(--ds-shadow-brutal-xl);
+  --ds-modal-backdrop: rgb(26 26 46 / 0.55);
+
+  /* Focus */
+  --ds-focus-ring: 0 0 0 3px var(--ds-color-bg), 0 0 0 6px var(--ds-color-focus-ring);
+}
+
+/* ------------------------------------------------------------------------
+   Variantes d'accent (offres, projets, étapes)
+   fond vif  => texte encre ; violet => texte blanc (règle de contraste)
+   ------------------------------------------------------------------------ */
+.accent-violet { --ds-accent: var(--ds-color-violet-500); --ds-accent-soft: var(--ds-color-violet-100); --ds-accent-fg: var(--ds-color-white); }
+.accent-coral  { --ds-accent: var(--ds-color-coral-500);  --ds-accent-soft: var(--ds-color-coral-100);  --ds-accent-fg: var(--ds-color-ink-900); }
+.accent-yellow { --ds-accent: var(--ds-color-yellow-500); --ds-accent-soft: var(--ds-color-yellow-100); --ds-accent-fg: var(--ds-color-ink-900); }
+.accent-mint   { --ds-accent: var(--ds-color-mint-500);   --ds-accent-soft: var(--ds-color-mint-100);   --ds-accent-fg: var(--ds-color-ink-900); }
+.accent-ink    { --ds-accent: var(--ds-color-ink-900);    --ds-accent-soft: var(--ds-color-cream-200);  --ds-accent-fg: var(--ds-color-cream-100); }
+
+/* Mouvement réduit : on coupe les durées, les composants n'ont rien à gérer */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ds-duration-fast: 0ms;
+    --ds-duration-normal: 0ms;
+    --ds-duration-slow: 0ms;
+    --ds-duration-slower: 0ms;
+    --ds-button-lift: 0px;
+    --ds-card-tilt-max: 0deg;
+  }
+}

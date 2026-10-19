@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "../../design/tokens.css";
+@import "../../design/tailwind-theme.css";
+
+/* Polices chargées par next/font (variables posées sur <html> dans layout.tsx) */
+:root {
+  --ds-font-display: var(--font-bricolage), ui-rounded, system-ui, sans-serif;
+  --ds-font-body: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ds-font-mono: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--ds-color-bg);
+    color: var(--ds-color-fg);
+    font-family: var(--ds-font-body);
+    line-height: var(--ds-line-height-normal);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ds-font-display);
+    font-weight: var(--ds-font-weight-black);
+    line-height: var(--ds-line-height-tight);
+    letter-spacing: var(--ds-letter-spacing-tight);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--ds-focus-ring);
+  }
+
+  ::selection {
+    background: var(--ds-color-yellow-500);
+    color: var(--ds-color-ink-900);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
