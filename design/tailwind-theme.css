@@ -31,6 +31,7 @@
   --color-success-bg: var(--ds-color-success-bg);
   --color-error: var(--ds-color-error);
   --color-error-bg: var(--ds-color-error-bg);
+  --color-link: var(--ds-color-link);
   --color-accent: var(--ds-accent);
   --color-accent-soft: var(--ds-accent-soft);
   --color-accent-fg: var(--ds-accent-fg);

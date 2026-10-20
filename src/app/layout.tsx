@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { MotionProvider } from "@/components/motion";
+import { Cursor } from "@/components/Cursor";
+import { KonamiConfetti } from "@/components/KonamiConfetti";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -28,11 +31,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="fr"
-      className={`${bricolage.variable} ${dmSans.variable} ${jetbrains.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="fr" className={`${bricolage.variable} ${dmSans.variable} ${jetbrains.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
+        <MotionProvider>
+          {children}
+          <Cursor />
+          <KonamiConfetti />
+        </MotionProvider>
+      </body>
     </html>
   );
 }

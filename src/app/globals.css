@@ -47,3 +47,29 @@
     scroll-behavior: auto;
   }
 }
+
+/* Ancres : compenser le header collant (h-16) */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* Bandeau confiance défilant (le contenu est dupliqué, on décale de 50 %) */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}
